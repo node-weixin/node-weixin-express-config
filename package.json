@@ -1,0 +1,42 @@
+{
+  "name": "node-weixin-express-config",
+  "version": "0.0.0",
+  "description": "weixin config for expressjs",
+  "homepage": "www.node-weixin.com",
+  "author": {
+    "name": "node-weixin",
+    "email": "calidion@gmail.com",
+    "url": "blog.3gcnbeta.com"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "node",
+    "weixin",
+    "express",
+    "config"
+  ],
+  "repository": "node-weixin/node-weixin-express-config",
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-coveralls": "^0.1.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0",
+    "node-weixin-settings": "^0.1.0"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "errorable": "^0.1.3",
+    "node-form-validator": "^0.3.0"
+  }
+}
