@@ -5,8 +5,8 @@ var urls = require('../lib/urls');
 
 describe('urls', function () {
   it('should get urls', function () {
-    var baseUrl = 'http://localhost/';
-    var prefix = 'weixin';
+    var baseUrl = 'http://localhost/weixin';
+    var prefix = '';
     var newUrls = urls(baseUrl, prefix);
     var bound = baseUrl + prefix;
     assert.equal(true, newUrls.auth.ack === bound + '/auth/ack');
@@ -16,5 +16,3 @@ describe('urls', function () {
     assert.equal(true, newUrls.pay.callback === bound + '/pay/callback');
   });
 });
-
-

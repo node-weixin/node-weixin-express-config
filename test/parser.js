@@ -7,8 +7,8 @@ var path = require('path');
 
 describe('parser', function () {
   it('should get parser config', function (done) {
-    parser('0', settings, path.resolve(__dirname, './fixtures/config.json'), function (data) {
-      console.log(data);
+    parser('0', settings, path.resolve(__dirname, './fixtures/config.json'), function () {
+      assert.equal(true, true);
       done();
     });
   });
@@ -21,7 +21,6 @@ describe('parser', function () {
         done();
       });
     } catch (e) {
-      console.log(e);
       errored = true;
     }
     assert.equal(true, errored);
@@ -36,7 +35,6 @@ describe('parser', function () {
         done();
       });
     } catch (e) {
-      console.log(e.message);
       assert.equal(true, e.message === '{"key":"scope","reason":"Not validate key scope"}');
       catched = true;
     }
@@ -59,5 +57,3 @@ describe('parser', function () {
     done();
   });
 });
-
-

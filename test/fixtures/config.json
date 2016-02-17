@@ -1,8 +1,8 @@
 {
   "app": {
     "id": "id",
-    "secret": "id",
-    "token": "id"
+    "secret": "secret",
+    "token": "token"
   },
   "oauth": {
     "state": "STATE",
@@ -13,7 +13,7 @@
     "key": "key"
   },
   "certificate": {
-    "pfxBase64": "test/assets/cert.p12",
+    "pfx": "InRlc3QvYXNzZXRzL2NlcnQucDEyIg==",
     "pfxKey": "key"
   },
   "message": {
@@ -21,6 +21,6 @@
   },
   "server": {
     "host": "www.sina.com.cn",
-    "prefix": "prefix"
+    "prefix": "weixin"
   }
 }
