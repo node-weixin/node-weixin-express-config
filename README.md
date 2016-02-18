@@ -55,15 +55,14 @@ express.use('/weixin/:id', handler);
 var parser = nodeWeixinExpressConfig.parser;
 var file = path.resolve(__dirname, './fixtures/config.json');
 var cb = function (json) {
-  //json是所有配置信息
+  //json是文件里的JSON配置信息
 }
 //
 //id  用于识别存储的数据
 //settings 是node-weixin-settings
-//
+//file json文件
+//cb 回调函数
 parser(id, settings, file, cb);
-
-```
 
 ```
 ## License
