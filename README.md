@@ -9,6 +9,8 @@ $ npm install --save node-weixin-express-config
 
 ## Usage
 
+
+### 初始化
 ```js
 var nodeWeixinExpressConfig = require('node-weixin-express-config');
 var settings = require('node-weixin-settings');
@@ -23,10 +25,13 @@ express.use(bodyParser.json());
 express.use(bodyParser.raw({
   type: 'text/xml'
 }));
+```
 
+
+### 路由部分使用方法
+
+```js
 var weixinConfigRouter = nodeWeixinExpressConfig.router;
-
-
 var handler = weixinConfigRouter(
   //获取数据识别ID的参数名
   'id',
@@ -43,8 +48,23 @@ var handler = weixinConfigRouter(
 });
 
 express.use('/weixin/:id', handler);
+```
 
-nodeWeixinExpressConfig('Rainbow');
+### 配置导入的使用方法
+```js
+var parser = nodeWeixinExpressConfig.parser;
+var file = path.resolve(__dirname, './fixtures/config.json');
+var cb = function (json) {
+  //json是所有配置信息
+}
+//
+//id  用于识别存储的数据
+//settings 是node-weixin-settings
+//
+parser(id, settings, file, cb);
+
+```
+
 ```
 ## License
 

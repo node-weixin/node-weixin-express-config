@@ -7,7 +7,41 @@ var path = require('path');
 
 describe('parser', function () {
   it('should get parser config', function (done) {
-    parser('0', settings, path.resolve(__dirname, './fixtures/config.json'), function () {
+    parser('0', settings, path.resolve(__dirname, './fixtures/config.json'), function (config) {
+      assert.equal(true, config.app !== null);
+      assert.equal(true, config.app.id === 'id');
+      assert.equal(true, config.app.secret === 'secret');
+      assert.equal(true, config.app.token === 'token');
+
+      assert.equal(true, config.oauth !== null);
+      assert.equal(true, config.oauth.state === 'STATE');
+      assert.equal(true, config.oauth.scope === 0);
+
+      assert.equal(true, config.merchant !== null);
+      assert.equal(true, config.merchant.id === 'id');
+      assert.equal(true, config.merchant.key === 'key');
+
+      assert.equal(true, config.server !== null);
+      assert.equal(true, config.server.host === 'www.sina.com.cn');
+      assert.equal(true, config.server.prefix === 'weixin');
+
+      assert.equal(true, config.certificate !== null);
+      assert.equal(true, config.certificate.pfx === 'InRlc3QvYXNzZXRzL2NlcnQucDEyIg==');
+      assert.equal(true, config.certificate.pfxKey === 'key');
+
+      assert.equal(true, config.urls !== null);
+      assert.equal(true, config.urls.auth !== null);
+      assert.equal(true, config.urls.auth.ack === 'http://www.sina.com.cn/weixin/auth/ack');
+
+      assert.equal(true, config.urls.oauth !== null);
+      assert.equal(true, config.urls.oauth.access === 'http://www.sina.com.cn/weixin/oauth/access');
+      assert.equal(true, config.urls.oauth.success === 'http://www.sina.com.cn/weixin/oauth/success');
+
+      assert.equal(true, config.urls.jssdk !== null);
+      assert.equal(true, config.urls.jssdk.config === 'http://www.sina.com.cn/weixin/jssdk/config');
+
+      assert.equal(true, config.urls.pay !== null);
+      assert.equal(true, config.urls.pay.callback === 'http://www.sina.com.cn/weixin/pay/callback');
       assert.equal(true, true);
       done();
     });
