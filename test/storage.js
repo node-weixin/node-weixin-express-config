@@ -27,6 +27,21 @@ describe('storage', function() {
     });
   });
 
+  it('should set data with wrong attribute', function(done) {
+    try {
+      storage.set(0, 'app', {
+        a: 'a'
+      }, function() {
+        assert(false);
+        done();
+      });
+    } catch (e) {
+      console.log(e);
+      assert(true);
+      done();
+    }
+  });
+
   it('should set wrong data', function(done) {
     try {
       storage.set(0, 'ddd', result, function() {
@@ -75,9 +90,8 @@ describe('storage', function() {
         assert.equal(true, config.server.prefix === 'weixin');
 
         assert.equal(true, config.certificate !== null);
-        assert.equal(true, config.certificate.pfxBase64 === 'InRlc3QvYXNzZXRzL2NlcnQucDEyIg==');
+        assert.equal(true, config.certificate.pfx === 'InRlc3QvYXNzZXRzL2NlcnQucDEyIg==');
         assert.equal(true, config.certificate.pfxKey === 'key');
-        assert.equal(true, config.certificate.pfx instanceof Buffer);
 
         assert.equal(true, config.urls !== null);
         assert.equal(true, config.urls.auth !== null);

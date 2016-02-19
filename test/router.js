@@ -52,16 +52,9 @@ describe('request', function() {
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
         assert.equal(true, res.body.data !== null);
-        assert.equal(true, res.body.data.app !== null);
-        assert.equal(true, res.body.data.app.id === '1');
-        assert.equal(true, res.body.data.app.secret === 'secret');
-        assert.equal(true, res.body.data.app.token === 'token');
-        assert.equal(true, res.body.data.oauth === null);
-        assert.equal(true, res.body.data.merchant === null);
-        assert.equal(true, res.body.data.message === null);
-        assert.equal(true, res.body.data.server === null);
-        assert.equal(true, res.body.data.certificate === null);
-        assert.equal(true, res.body.data.urls === null);
+        assert.equal(true, res.body.data.id === '1');
+        assert.equal(true, res.body.data.secret === 'secret');
+        assert.equal(true, res.body.data.token === 'token');
         done();
       });
   });
@@ -93,18 +86,8 @@ describe('request', function() {
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
         assert.equal(true, res.body.data !== null);
-        assert.equal(true, res.body.data.app !== null);
-        assert.equal(true, res.body.data.app.id === '1');
-        assert.equal(true, res.body.data.app.secret === 'secret');
-        assert.equal(true, res.body.data.app.token === 'token');
-        assert.equal(true, res.body.data.oauth !== null);
-        assert.equal(true, res.body.data.oauth.state === 'state');
-        assert.equal(true, res.body.data.oauth.scope === 0);
-        assert.equal(true, res.body.data.merchant === null);
-        assert.equal(true, res.body.data.message === null);
-        assert.equal(true, res.body.data.server === null);
-        assert.equal(true, res.body.data.certificate === null);
-        assert.equal(true, res.body.data.urls === null);
+        assert.equal(true, res.body.data.state === 'state');
+        assert.equal(true, res.body.data.scope === 0);
         done();
       });
   });
@@ -127,29 +110,16 @@ describe('request', function() {
         done();
       });
   });
-  it('should get oauth config', function(done) {
+  it('should get merchant config', function(done) {
     var request = require('supertest');
     request(express)
-      .get('/weixin/1/oauth')
+      .get('/weixin/1/merchant')
       .expect(200)
       .end(function(error, res) {
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
-        assert.equal(true, res.body.data !== null);
-        assert.equal(true, res.body.data.app !== null);
-        assert.equal(true, res.body.data.app.id === '1');
-        assert.equal(true, res.body.data.app.secret === 'secret');
-        assert.equal(true, res.body.data.app.token === 'token');
-        assert.equal(true, res.body.data.oauth !== null);
-        assert.equal(true, res.body.data.oauth.state === 'state');
-        assert.equal(true, res.body.data.oauth.scope === 0);
-        assert.equal(true, res.body.data.merchant !== null);
-        assert.equal(true, res.body.data.merchant.id === 'id');
-        assert.equal(true, res.body.data.merchant.key === 'key');
-        assert.equal(true, res.body.data.message === null);
-        assert.equal(true, res.body.data.server === null);
-        assert.equal(true, res.body.data.certificate === null);
-        assert.equal(true, res.body.data.urls === null);
+        assert.equal(true, res.body.data.id === 'id');
+        assert.equal(true, res.body.data.key === 'key');
         done();
       });
   });
@@ -178,22 +148,7 @@ describe('request', function() {
       .end(function(error, res) {
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
-        assert.equal(true, res.body.data !== null);
-        assert.equal(true, res.body.data.app !== null);
-        assert.equal(true, res.body.data.app.id === '1');
-        assert.equal(true, res.body.data.app.secret === 'secret');
-        assert.equal(true, res.body.data.app.token === 'token');
-        assert.equal(true, res.body.data.oauth !== null);
-        assert.equal(true, res.body.data.oauth.state === 'state');
-        assert.equal(true, res.body.data.oauth.scope === 0);
-        assert.equal(true, res.body.data.merchant !== null);
-        assert.equal(true, res.body.data.merchant.id === 'id');
-        assert.equal(true, res.body.data.merchant.key === 'key');
-        assert.equal(true, res.body.data.message !== null);
-        assert.equal(true, res.body.data.message.aes === 'aes');
-        assert.equal(true, res.body.data.server === null);
-        assert.equal(true, res.body.data.certificate === null);
-        assert.equal(true, res.body.data.urls === null);
+        assert.equal(true, res.body.data.aes === 'aes');
         done();
       });
   });
@@ -219,15 +174,13 @@ describe('request', function() {
   it('should get server config', function(done) {
     var request = require('supertest');
     request(express)
-      .get('/weixin/1/message')
+      .get('/weixin/1/server')
       .expect(200)
       .end(function(error, res) {
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
-        assert.equal(true, res.body.data !== null);
-        assert.equal(true, res.body.data.server !== null);
-        assert.equal(true, res.body.data.server.host === 'localhost');
-        assert.equal(true, res.body.data.server.prefix === 'weixin');
+        assert.equal(true, res.body.data.host === 'localhost');
+        assert.equal(true, res.body.data.prefix === 'weixin');
         done();
       });
   });
@@ -243,7 +196,6 @@ describe('request', function() {
       .end(function(error, res) {
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
-        assert.equal(true, res.body.data !== null);
         assert.equal(true, res.body.data !== null);
         assert.equal(true, res.body.data.auth.ack === 'http://localhost/weixin' + '/auth/ack');
         assert.equal(true, res.body.data.jssdk.config === 'http://localhost/weixin' + '/jssdk/config');
@@ -263,12 +215,11 @@ describe('request', function() {
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
         assert.equal(true, res.body.data !== null);
-        assert.equal(true, res.body.data.urls !== null);
-        assert.equal(true, res.body.data.urls.auth.ack === 'http://localhost/weixin' + '/auth/ack');
-        assert.equal(true, res.body.data.urls.jssdk.config === 'http://localhost/weixin' + '/jssdk/config');
-        assert.equal(true, res.body.data.urls.oauth.access === 'http://localhost/weixin' + '/oauth/access');
-        assert.equal(true, res.body.data.urls.oauth.success === 'http://localhost/weixin' + '/oauth/success');
-        assert.equal(true, res.body.data.urls.pay.callback === 'http://localhost/weixin' + '/pay/callback');
+        assert.equal(true, res.body.data.auth.ack === 'http://localhost/weixin' + '/auth/ack');
+        assert.equal(true, res.body.data.jssdk.config === 'http://localhost/weixin' + '/jssdk/config');
+        assert.equal(true, res.body.data.oauth.access === 'http://localhost/weixin' + '/oauth/access');
+        assert.equal(true, res.body.data.oauth.success === 'http://localhost/weixin' + '/oauth/success');
+        assert.equal(true, res.body.data.pay.callback === 'http://localhost/weixin' + '/pay/callback');
         done();
       });
   });
@@ -291,5 +242,20 @@ describe('request', function() {
       });
   });
 
-
+  it('should get certificate config', function(done) {
+    var request = require('supertest');
+    request(express)
+      .get('/weixin/1/certificate')
+      .expect(200)
+      .end(function(error, res) {
+        console.log(res.body);
+        var content = fs.readFileSync(__dirname + '/fixtures/cert.p12');
+        assert.equal(true, !error);
+        assert.equal(true, res.body.id === '1');
+        assert.equal(true, res.body.data !== null);
+        assert.equal(true, res.body.data.pfx === content.toString('base64'));
+        assert.equal(true, res.body.data.pfxKey === 'key');
+        done();
+      });
+  });
 });
