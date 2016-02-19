@@ -197,6 +197,7 @@ describe('request', function() {
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
         assert.equal(true, res.body.data !== null);
+        assert.equal(true, res.body.data.base.url === 'http://localhost/weixin');
         assert.equal(true, res.body.data.auth.ack === 'http://localhost/weixin' + '/auth/ack');
         assert.equal(true, res.body.data.jssdk.config === 'http://localhost/weixin' + '/jssdk/config');
         assert.equal(true, res.body.data.oauth.access === 'http://localhost/weixin' + '/oauth/access');
@@ -215,6 +216,7 @@ describe('request', function() {
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
         assert.equal(true, res.body.data !== null);
+        assert.equal(true, res.body.data.base.url === 'http://localhost/weixin');
         assert.equal(true, res.body.data.auth.ack === 'http://localhost/weixin' + '/auth/ack');
         assert.equal(true, res.body.data.jssdk.config === 'http://localhost/weixin' + '/jssdk/config');
         assert.equal(true, res.body.data.oauth.access === 'http://localhost/weixin' + '/oauth/access');
