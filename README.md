@@ -48,6 +48,8 @@ var handler = weixinConfigRouter(
 });
 
 express.use('/weixin/:id', handler);
+express.get('/weixin/:id/:type', handler.__handlers.get);
+express.post('/weixin/:id/:type', handler.__handlers.post);
 ```
 
 ### 配置导入的使用方法

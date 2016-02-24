@@ -15,14 +15,23 @@ express.use(bodyParser.raw({
   type: 'text/xml'
 }));
 
-express.use('/weixin/:id', weixinConfigRouter('id', settings, function callback(req, res, id, value) {
+var router = weixinConfigRouter('id', settings, function callback(req, res, id, value) {
   res.json({
     id: id,
     data: value
   });
-}));
+});
+
+express.use('/weixin/:id', router);
+
 
 describe('request', function() {
+  it('should have attributes', function() {
+    assert.equal(true, router.__handlers instanceof Object);
+    assert.equal(true, router.__handlers.get instanceof Function);
+    assert.equal(true, router.__handlers.post instanceof Function);
+  });
+
   it('should set app config', function(done) {
     var request = require('supertest');
     request(express)
