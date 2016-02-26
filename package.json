@@ -1,6 +1,6 @@
 {
   "name": "node-weixin-express-config",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "weixin config for expressjs",
   "homepage": "www.node-weixin.com",
   "author": {
