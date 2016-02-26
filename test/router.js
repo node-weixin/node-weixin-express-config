@@ -235,6 +235,23 @@ describe('request', function() {
       });
   });
 
+  it('should set certificate without pfx', function(done) {
+    var request = require('supertest');
+    request(express)
+      .post('/weixin/1/certificate')
+      .field('pfxKey', 'key')
+      .expect(200)
+      .end(function(error, res) {
+        // var content = fs.readFileSync(__dirname + '/fixtures/cert.p12');
+        assert.equal(true, !error);
+        assert.equal(true, res.body.id === '1');
+        assert.equal(true, res.body.data !== null);
+        assert.equal(true, !res.body.data.pfx);
+        assert.equal(true, res.body.data.pfxKey === 'key');
+        done();
+      });
+  });
+
   it('should set certificate config', function(done) {
     var request = require('supertest');
     request(express)
