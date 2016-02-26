@@ -36,7 +36,6 @@ describe('storage', function() {
         done();
       });
     } catch (e) {
-      console.log(e);
       assert(true);
       done();
     }

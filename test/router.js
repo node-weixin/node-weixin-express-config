@@ -259,7 +259,6 @@ describe('request', function() {
       .get('/weixin/1/certificate')
       .expect(200)
       .end(function(error, res) {
-        console.log(res.body);
         var content = fs.readFileSync(__dirname + '/fixtures/cert.p12');
         assert.equal(true, !error);
         assert.equal(true, res.body.id === '1');
