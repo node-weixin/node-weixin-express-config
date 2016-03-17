@@ -69,7 +69,7 @@ parser(id, settings, file, cb);
 ```
 ## License
 
-MIT © [node-weixin](blog.3gcnbeta.com)
+Apache-2.0 © [node-weixin](www.node-weixin.com)
 
 
 [npm-image]: https://badge.fury.io/js/node-weixin-express-config.svg
