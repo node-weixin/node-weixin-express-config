@@ -44,6 +44,7 @@ describe('request', function() {
       .expect(200)
       .end(function(error, res) {
         assert.equal(true, !error);
+        console.log(res.body);
         assert.equal(true, res.body.id === '1');
         assert.equal(true, res.body.data.id === '1');
         assert.equal(true, res.body.data.secret === 'secret');
