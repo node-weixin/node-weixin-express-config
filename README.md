@@ -28,6 +28,32 @@ express.use(bodyParser.raw({
 ```
 
 
+### 直接使用set的方法 
+
+```js
+nodeWeixinExpressConfig.set(
+  settings,
+  express,
+  // 数据处理完成后的回调函数
+  // ID是保存数据唯一识别号，可以自己定义
+  // value是所获取或者保存的数据
+  function callback(req, res, id, value) {
+    res.json({
+      id: String(id),
+      data: value
+    });
+  },
+  function () {
+    return 1;
+  },
+  // 获取数据识别ID的参数名
+  'appId',
+  '/weixin/config/:type'
+);
+
+```
+
+
 ### 路由部分使用方法
 
 ```js
