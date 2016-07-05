@@ -30,7 +30,8 @@
     "gulp-nsp": "^2.4.1",
     "gulp-plumber": "^1.1.0",
     "node-weixin-settings": "^0.2.1",
-    "supertest": "^1.2.0"
+    "supertest": "^1.2.0",
+    "skipper": "^0.6.1"
   },
   "scripts": {
     "prepublish": "gulp prepublish",
@@ -38,10 +39,9 @@
   },
   "license": "MIT",
   "dependencies": {
+    "express": "^4.14.0",
     "async": "^2.0.0-rc.6",
     "errorable": "^0.3.1",
-    "express": "^4.14.0",
-    "node-form-validator": "^1.0.1",
-    "skipper": "^0.6.1"
+    "node-form-validator": "^1.0.1"
   }
 }
