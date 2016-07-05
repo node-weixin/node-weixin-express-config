@@ -23,9 +23,9 @@
     "body-parser": "^1.15.0",
     "gulp": "^3.6.0",
     "gulp-coveralls": "^0.1.0",
-    "gulp-eslint": "^2.0.0",
+    "gulp-eslint": "^3.0.1",
     "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-istanbul": "^0.10.3",
+    "gulp-istanbul": "^1.0.0",
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
@@ -38,10 +38,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "async": "^1.5.2",
-    "errorable": "^0.2.1",
+    "async": "^2.0.0-rc.6",
+    "errorable": "^0.3.1",
     "express": "^4.13.4",
-    "node-form-validator": "^0.4.0",
-    "skipper": "^0.5.9"
+    "node-form-validator": "^1.0.1",
+    "skipper": "^0.6.1"
   }
 }
