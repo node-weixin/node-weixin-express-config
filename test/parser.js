@@ -66,10 +66,19 @@ describe('parser', function () {
     try {
       parser('0', settings, path.resolve(__dirname, './fixtures/wrong.json'), function () {
         assert(false);
-        done();
       });
     } catch (e) {
-      assert.equal(true, e.message === '{"key":"scope","reason":"Not validate key scope"}');
+      var error = JSON.parse(e.message);
+      var json = {
+        code: -1,
+        key: 'scope',
+        message: 'Not validate key scope',
+        data: {
+          state: 'STATE',
+          scope: 'a'
+        }
+      };
+      assert.deepEqual(error, json);
       catched = true;
     }
     assert.equal(true, catched);
