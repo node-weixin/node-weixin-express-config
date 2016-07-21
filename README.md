@@ -43,7 +43,9 @@ nodeWeixinExpressConfig.set(
       data: value
     });
   },
-  function () {
+  function (req, name) {
+    // return req.session[name]
+    // return req.session.user.id
     return 1;
   },
   // 获取数据识别ID的参数名
